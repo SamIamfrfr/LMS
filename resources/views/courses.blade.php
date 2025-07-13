@@ -1,77 +1,89 @@
-<html lang="en">
-       
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Courses</title>
-</head>
-<body>
-    <h1>Whats currently available</h1>
-</body>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Courses') }}
+        </h2>
+    </x-slot> 
 
- <a
-        href="{{ url('/dashboard') }}"
-        >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Courses</title>
+    </head>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    {{ __("Whats currently available:") }}
+                </div>
+                    
+
+
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    {{ __("") }}
+                </div>  
+            </div>
+        </div>
+    </div>
+<!--UPLOAD THIS PART TO COURSES IN SQLITE-->
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <form action="/courses" method="POST" novalidate>
+                        @csrf
+                        <div>Register a course:</div>
+
+                        <div class="p-6 text-gray-900 dark:text-gray-100">
+                            {{ __("Course Name:") }}
+                            
+                            <div class="py-2">
+                                <div class="text-black-900 dark:text-black-100">
+                                    <input type="text" style="color:black" id="courseid" name="name" required>
+                                </div>
+                                
+
+                                <div class="py-4">
+                                    {{ __("Course ID: ") }}
+                                </div>   
+                                <div>
+                                    <input type="text" style="color:black" id="courseid" courseid="courseid" required>
+                                </div>
+
+                                <div class="py-4">
+                                    {{ __("Location: ") }}
+                                </div>   
+                                <div>
+                                    <input type="text" style="color:black" id="courseid" location="location" required>
+                                </div>
+
+                                <div class="py-4">
+                                    {{ __("Instructor: ") }}
+                                </div>   
+                                <div>
+                                    <input type="text" style="color:black" id="courseid" instructor="instructor" required>
+                                </div>
+
+                                    
+                            </div>
+                        </div>
+                        <div class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"> <input type="submit"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Session Status -->
+        <x-auth-session-status class="mb-4" :status="session('status')" />
+
+        <form action="/courses" method="POST" novalidate>
+                @csrf
+
+    <!--a ref="{{ url('/dashboard') }}">
         <button>dashboard</button>        
-        </a>
-
-<h1>Enter a course</h1>
-
-<form action="/courses" method="POST" novalidate>
-    @csrf
-    <label for="name">Course Name</label>
-    <input type="text" id="name" name="name" required>
-    <input type="submit">
-</form>
-
-
-</html>
-
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form action="/courses" method="POST" novalidate>
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </a-->
+</x-app-layout>

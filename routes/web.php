@@ -19,10 +19,11 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/courses', function () {
     return view('courses');
-});
+})->name('courses');
 
 Route::post('/courses',function(){
-    return redirect('/');
+    return redirect('/dashboard');
 });
 
 require __DIR__.'/auth.php';
+
