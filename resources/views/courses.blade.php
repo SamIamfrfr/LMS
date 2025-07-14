@@ -27,12 +27,13 @@
             </div>
         </div>
     </div>
+
 <!--UPLOAD THIS PART TO COURSES IN SQLITE-->
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="/courses" method="POST" novalidate>
+                    <form method="POST" action="{{ route('courses.store') }}">
                         @csrf
                         <div>Register a course:</div>
 
@@ -41,7 +42,7 @@
                             
                             <div class="py-2">
                                 <div class="text-black-900 dark:text-black-100">
-                                    <input type="text" style="color:black" id="courseid" name="name" required>
+                                    <input type="text" style="color:black" id="coursename" name="Course Name" required>
                                 </div>
                                 
 
@@ -49,21 +50,21 @@
                                     {{ __("Course ID: ") }}
                                 </div>   
                                 <div>
-                                    <input type="text" style="color:black" id="courseid" courseid="courseid" required>
+                                    <input type="number" style="color:black" id="courseid" name="CourseID" required>
                                 </div>
 
                                 <div class="py-4">
                                     {{ __("Location: ") }}
                                 </div>   
                                 <div>
-                                    <input type="text" style="color:black" id="courseid" location="location" required>
+                                    <input type="text" style="color:black" id="location" name="Location" required>
                                 </div>
 
                                 <div class="py-4">
                                     {{ __("Instructor: ") }}
                                 </div>   
                                 <div>
-                                    <input type="text" style="color:black" id="courseid" instructor="instructor" required>
+                                    <input type="text" style="color:black" id="instructor" name="Instructor" required>
                                 </div>
 
                                     

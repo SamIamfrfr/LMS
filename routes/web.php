@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,10 +21,12 @@ Route::middleware('auth')->group(function () {
 Route::get('/courses', function () {
     return view('courses');
 })->name('courses');
-
+/*
 Route::post('/courses',function(){
     return redirect('/dashboard');
 });
+*/
+Route::post('/courses', [CourseController::class, 'store']) -> name('courses.store');
 
 require __DIR__.'/auth.php';
 
