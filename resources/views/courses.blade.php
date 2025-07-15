@@ -42,7 +42,7 @@
                             
                             <div class="py-2">
                                 <div class="text-black-900 dark:text-black-100">
-                                    <input type="text" style="color:black" id="coursename" name="Course Name" required>
+                                    <input type="text" style="color:black" id="coursename" name="Course_Name" required>
                                 </div>
                                 
 
@@ -65,9 +65,7 @@
                                 </div>   
                                 <div>
                                     <input type="text" style="color:black" id="instructor" name="Instructor" required>
-                                </div>
-
-                                    
+                                </div>                                    
                             </div>
                         </div>
                         <div class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"> <input type="submit"></div>
@@ -81,10 +79,4 @@
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <form action="/courses" method="POST" novalidate>
-                @csrf
-
-    <!--a ref="{{ url('/dashboard') }}">
-        <button>dashboard</button>        
-    </a-->
 </x-app-layout>

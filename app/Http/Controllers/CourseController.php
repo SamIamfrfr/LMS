@@ -9,7 +9,7 @@ class CourseController extends Controller
 {
     public function store(Request $request){
         $request-> validate([
-            'Course Name'=> 'required',
+            'Course_Name'=> 'required',
             'CourseID' => 'required',
             'Location' => 'required',
             'Instructor' => 'required',
@@ -17,10 +17,11 @@ class CourseController extends Controller
 
         Course::create($request->only([
             'CourseID',
-            'Course Name',
+            'Course_Name',
             'Location',
             'Instructor'
         ]));
+        
 
     return redirect()->route('dashboard');
     }
