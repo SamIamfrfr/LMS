@@ -24,6 +24,12 @@
                         {{ __('Courses') }}                        
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                        {{ __('Users') }}                        
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -81,6 +87,9 @@
             <!--ADDED-->
             <x-responsive-nav-link :href="route('courses')" :active="request()->routeIs('courses')">
                 {{ __('Courses') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                {{ __('Users') }}
             </x-responsive-nav-link>
         </div>
 
