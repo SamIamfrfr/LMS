@@ -25,11 +25,12 @@
                     @else
                         <ul>
                             @foreach($courses as $course)
-                                <li>
-                                    {{ $course->Course_Name }} ({{ $course->CourseID }}) - 
-                                    {{ $course->Location }} - 
-                                    {{ $course->Instructor }}
-                                </li>
+                                <tr>                                    
+                                    <td>{{ $course->Course_Name }}</td>
+                                    <td>{{ $course->Location }}</td>
+                                    <td>{{ $course->Instructor }}</td>                    
+                                    <td>{{ $course->CourseID }}</td>
+                                </tr>
                             @endforeach
                         </ul>
                     @endif
