@@ -19,7 +19,21 @@
                     {{ __("Whats currently available:") }}
                 </div>
                     
-
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    @if($courses->isEmpty())
+                        <p>{{ __("No courses available at the moment.") }}</p>
+                    @else
+                        <ul>
+                            @foreach($courses as $course)
+                                <li>
+                                    {{ $course->Course_Name }} ({{ $course->CourseID }}) - 
+                                    {{ $course->Location }} - 
+                                    {{ $course->Instructor }}
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div>
 
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("") }}

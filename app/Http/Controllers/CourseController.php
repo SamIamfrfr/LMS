@@ -7,6 +7,12 @@ use App\Models\Course;
 
 class CourseController extends Controller
 {
+     //retrieve the data 
+        public function index(){
+            $courses = Course::all();
+            return view('courses', ['courses' => $courses]);
+        }
+
     public function store(Request $request){
         $request-> validate([
             'Course_Name'=> 'required',
@@ -15,12 +21,14 @@ class CourseController extends Controller
             'Instructor' => 'required',
         ]);
 
+
         Course::create($request->only([
             'CourseID',
             'Course_Name',
             'Location',
             'Instructor'
         ]));
+        
         
 
     return redirect()->route('dashboard');

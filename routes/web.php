@@ -30,12 +30,23 @@ Route::get('/users', function () {
 })->name('users');
 
 
-// Uncomment the following lines if you want to use the CourseController for storing courses
-/* 
+//STORE INFO FOR COURSE
+Route::get('/courses/create', [CourseController::class, 'create'])
+    ->middleware(['auth', 'verified'])
+    ->name('courses.create');
+    
+Route::post('/courses', [CourseController::class, 'store'])
+    ->middleware(['auth', 'verified'])
+    ->name('courses.store');
+
+Route::get('/courses', [CourseController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('courses');
+
 Route::post('/courses',function(){
-    return redirect('/dashboard');
+    return redirect('/courses')->with('success', 'Course created successfully!');
 });
-*/
+
 
 Route::get('/users', [UserController::class, 'users'])
     ->middleware(['auth', 'verified'])
