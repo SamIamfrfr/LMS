@@ -20,36 +20,35 @@
                 </div>
                 
                     
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <table id="myTable" class="display" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>{{ __("Course Name") }}</th>
-                                <th>{{ __("Location") }}</th>
-                                <th>{{ __("Instructor") }}</th>
-                                <th>{{ __("Course ID") }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if($courses->isEmpty())
+                    <div class="p-6 text-gray-900 dark:text-gray-100 overflow-x-auto">
+                        <table id="myTable" class="display nowrap" style="width:100%">
+                            <thead>
                                 <tr>
-                                    <td colspan="4" class="text-center">{{ __("No courses available at the moment.") }}</td>
-                                </tr>                            
-                            @else
-                                <ul>
-                                    @foreach($courses as $course)
-                                        <tr>
-                                            <td>{{ $course->Course_Name }}</td>
-                                            <td>{{ $course->Location }}</td>
-                                            <td>{{ $course->Instructor }}</td>                    
-                                            <td>{{ $course->CourseID }}</td>
-                                        </tr>
-                                    @endforeach
-                                </ul>
-                            @endif
-                        s</tbody>
-                    </table>
-                </div>
+                                    <th>{{ __("Course Name") }}</th>
+                                    <th>{{ __("Location") }}</th>
+                                    <th>{{ __("Instructor") }}</th>
+                                    <th>{{ __("Course ID") }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse($courses as $course)
+                                    <tr>
+                                        <td>{{ $course->Course_Name }}</td>
+                                        <td>{{ $course->Location }}</td>
+                                        <td>{{ $course->Instructor }}</td>
+                                        <td>{{ $course->CourseID }}</td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="4" class="text-center">
+                                            {{ __("No courses available at the moment.") }}
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+
 
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("") }}
@@ -108,5 +107,28 @@
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
+@push('scripts')
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <!-- DataTables Default Styling (NOT Tailwind version) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                paging: true,
+                searching: true,
+                info: true,
+                order: [[0, 'asc']],
+                columnDefs: [
+                    { orderable: false, targets: 3 }
+                ]
+            });
+        });
+    </script>
+@endpush
+
 
 </x-app-layout>
