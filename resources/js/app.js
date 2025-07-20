@@ -1,19 +1,8 @@
 import './bootstrap';
 import Alpine from 'alpinejs';
+import DataTable from 'datatables.net-dt';
 
 window.Alpine = Alpine;
-
+let table = new DataTable('#myTable');
 Alpine.start();
 
-
-$(document).ready(function () {
-    $('#coursesTable').DataTable({
-        paging: true,
-        searching: true,
-        info: true,
-        order: [[0, 'asc']],
-        columnDefs: [
-            { orderable: false, targets: 3 } // Adjust as needed
-        ]
-    });
-});

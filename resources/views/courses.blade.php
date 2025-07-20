@@ -18,22 +18,37 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("Whats currently available:") }}
                 </div>
+                
                     
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    @if($courses->isEmpty())
-                        <p>{{ __("No courses available at the moment.") }}</p>
-                    @else
-                        <ul>
-                            @foreach($courses as $course)
-                                <tr>                                    
-                                    <td>{{ $course->Course_Name }}</td>
-                                    <td>{{ $course->Location }}</td>
-                                    <td>{{ $course->Instructor }}</td>                    
-                                    <td>{{ $course->CourseID }}</td>
-                                </tr>
-                            @endforeach
-                        </ul>
-                    @endif
+                    <table id="myTable" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>{{ __("Course Name") }}</th>
+                                <th>{{ __("Location") }}</th>
+                                <th>{{ __("Instructor") }}</th>
+                                <th>{{ __("Course ID") }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if($courses->isEmpty())
+                                <tr>
+                                    <td colspan="4" class="text-center">{{ __("No courses available at the moment.") }}</td>
+                                </tr>                            
+                            @else
+                                <ul>
+                                    @foreach($courses as $course)
+                                        <tr>
+                                            <td>{{ $course->Course_Name }}</td>
+                                            <td>{{ $course->Location }}</td>
+                                            <td>{{ $course->Instructor }}</td>                    
+                                            <td>{{ $course->CourseID }}</td>
+                                        </tr>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        s</tbody>
+                    </table>
                 </div>
 
                 <div class="p-6 text-gray-900 dark:text-gray-100">
