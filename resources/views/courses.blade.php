@@ -10,6 +10,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Courses</title>
+
+        <style>
+        div.dataTables_length {
+            display: none !important;
+        }
+    </style>
+
     </head>
 
     <div class="py-12">
@@ -22,8 +29,8 @@
                     
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <table id="myTable" class="display" style="width:100%">
-                        <thead>
-                            <tr>
+                        <thead class="bg-gray-200 dark:bg-gray-700">                            
+                            <tr class="bg-gray-200 dark:bg-gray-700">
                                 <th>{{ __("Course Name") }}</th>
                                 <th>{{ __("Location") }}</th>
                                 <th>{{ __("Instructor") }}</th>
@@ -47,7 +54,7 @@
                                     @endforeach
                                 </ul>
                             @endif
-                        s</tbody>
+                        </tbody>
                     </table>
                 </div>
 
@@ -109,4 +116,30 @@
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
+@push('scripts')
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <!-- DataTables Default Styling (NOT Tailwind version) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                paging: true,
+                searching: true,
+                lengthChange: false,
+                info: true,
+                order: [[0, 'asc']],
+                columnDefs: [
+                    { orderable: false, targets: 3 }
+                ]
+            });
+            $('.dataTables_length').remove();
+        });
+    </script>
+@endpush
+
+        
 </x-app-layout>
