@@ -43,6 +43,8 @@ Route::get('/courses', [CourseController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('courses');
 
+
+    
 Route::post('/courses',function(){
     return redirect('/courses')->with('success', 'Course created successfully!');
 });

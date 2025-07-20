@@ -29,8 +29,9 @@ class CourseController extends Controller
             'Instructor'
         ]));
         
-        
+    //return redirect()->route('courses');
 
-    return redirect()->route('dashboard');
+    return redirect()->route('courses')->with('success', 'You’ve successfully submitted a course!');
+
     }
 }
