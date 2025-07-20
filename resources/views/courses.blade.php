@@ -10,6 +10,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Courses</title>
+
+        <style>
+        div.dataTables_length {
+            display: none !important;
+        }
+    </style>
+
     </head>
 
     <div class="py-12">
@@ -19,36 +26,37 @@
                     {{ __("Whats currently available:") }}
                 </div>
                 
-                    
-                    <div class="p-6 text-gray-900 dark:text-gray-100 overflow-x-auto">
-                        <table id="myTable" class="display nowrap" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>{{ __("Course Name") }}</th>
-                                    <th>{{ __("Location") }}</th>
-                                    <th>{{ __("Instructor") }}</th>
-                                    <th>{{ __("Course ID") }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($courses as $course)
-                                    <tr>
-                                        <td>{{ $course->Course_Name }}</td>
-                                        <td>{{ $course->Location }}</td>
-                                        <td>{{ $course->Instructor }}</td>
-                                        <td>{{ $course->CourseID }}</td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="4" class="text-center">
-                                            {{ __("No courses available at the moment.") }}
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
 
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <table id="myTable" class="display" style="width:100%">
+                        <thead class="bg-gray-200 dark:bg-gray-700">                            
+                            <tr class="bg-gray-200 dark:bg-gray-700">
+                                <th>{{ __("Course Name") }}</th>
+                                <th>{{ __("Location") }}</th>
+                                <th>{{ __("Instructor") }}</th>
+                                <th>{{ __("Course ID") }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if($courses->isEmpty())
+                                <tr>
+                                    <td colspan="4" class="text-center">{{ __("No courses available at the moment.") }}</td>
+                                </tr>                            
+                            @else
+                                <ul>
+                                    @foreach($courses as $course)
+                                        <tr>
+                                            <td>{{ $course->Course_Name }}</td>
+                                            <td>{{ $course->Location }}</td>
+                                            <td>{{ $course->Instructor }}</td>                    
+                                            <td>{{ $course->CourseID }}</td>
+                                        </tr>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     {{ __("") }}
@@ -131,4 +139,30 @@
 @endpush
 
 
+@push('scripts')
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <!-- DataTables Default Styling (NOT Tailwind version) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                paging: true,
+                searching: true,
+                lengthChange: false,
+                info: true,
+                order: [[0, 'asc']],
+                columnDefs: [
+                    { orderable: false, targets: 3 }
+                ]
+            });
+            $('.dataTables_length').remove();
+        });
+    </script>
+@endpush
+
+        
 </x-app-layout>
