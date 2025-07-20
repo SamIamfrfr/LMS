@@ -26,10 +26,11 @@
                     {{ __("Whats currently available:") }}
                 </div>
                 
-
+                    
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <table id="myTable" class="display" style="width:100%">
-                        <thead class="bg-gray-200 dark:bg-gray-700">                            
+                        <thead class="bg-gray-200 dark:bg-gray-700">
+                            
                             <tr class="bg-gray-200 dark:bg-gray-700">
                                 <th>{{ __("Course Name") }}</th>
                                 <th>{{ __("Location") }}</th>
@@ -115,7 +116,7 @@
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
-@push('scripts')
+        @push('scripts')
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
