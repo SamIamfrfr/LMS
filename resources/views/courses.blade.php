@@ -26,7 +26,7 @@
                     {{ __("Whats currently available:") }}
                 </div>
                 
-                    
+
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <table id="myTable" class="display" style="width:100%">
                         <thead class="bg-gray-200 dark:bg-gray-700">                            
@@ -115,6 +115,29 @@
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
+@push('scripts')
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <!-- DataTables Default Styling (NOT Tailwind version) -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                paging: true,
+                searching: true,
+                info: true,
+                order: [[0, 'asc']],
+                columnDefs: [
+                    { orderable: false, targets: 3 }
+                ]
+            });
+        });
+    </script>
+@endpush
+
 
 @push('scripts')
     <!-- jQuery -->
