@@ -18,31 +18,30 @@
         </style>
 
         <style>
-    div.dataTables_filter {
-        float: left !important;
-        text-align: left !important;
-    }
+            div.dataTables_filter {
+                float: left !important;
+                text-align: left !important;
+            }
 
-    /* Optional: clear float if needed */
-    #myTable_wrapper .dataTables_filter {
-        margin-bottom: 1rem;
-    }
+            /* Optional: clear float if needed */
+            #myTable_wrapper .dataTables_filter {
+                margin-bottom: 1rem;
+            }
 
-    div.dataTables_length {
-        display: none !important;
-    }
-    </style>
-
-
+            div.dataTables_length {
+                display: none !important;
+            }
+        </style>
     </head>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-               <div class="p-8 text-gray-900 dark:text-gray-100">
-                <h1 class="text-4xl font-extrabold leading-tight tracking-tight mb-4"> What’s Currently Available </h1>
-            <p class="text-lg font-medium text-gray-700 dark:text-gray-300"> Explore the list of active courses below.</p>
-    </div>
-                
+
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-8 text-gray-900 dark:text-gray-100">
+                        <h1 class="text-4xl font-extrabold leading-tight tracking-tight mb-4"> What’s Currently Available </h1>
+                        <p class="text-lg font-medium text-gray-700 dark:text-gray-300"> Explore the list of active courses below.</p>
+                    </div>
+                    
                     
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <table id="myTable" class="display" style="width:100%">

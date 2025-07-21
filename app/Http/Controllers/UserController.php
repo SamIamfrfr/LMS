@@ -13,7 +13,7 @@ class UserController extends Controller
             $users = DB::table('users')->get();
             return view('users', ['users' => $users]);
 
-           // $users = DB::table('users')->get();
+            // $users = DB::table('users')->get();
             //return view('dashboard', ['user' => $users]);
         }
 }
