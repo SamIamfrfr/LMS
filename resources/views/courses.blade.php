@@ -12,9 +12,9 @@
         <title>Courses</title>
 
         <style>
-        div.dataTables_length {
-            display: none !important;
-        }
+            div.dataTables_length {
+                display: none !important;
+            }
         </style>
 
         <style>

@@ -44,6 +44,7 @@
                             <thead class="bg-gray-200 dark:bg-gray-700">
 
                                 <tr class="bg-gray-200 dark:bg-gray-700">
+                                    <th>{{ __("User ID") }}</th>
                                     <th>{{ __("Usernames") }}</th>
                                     <th>{{ __("Email") }}</th>
                                     <th>{{__("Course ID")}}</th>
@@ -59,6 +60,7 @@
                                     <ul>
                                         @foreach ($users as $user)
                                             <tr>
+                                                <td>{{ $user->id }}</td>
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->CourseID ?? 'N/A' }}</td>

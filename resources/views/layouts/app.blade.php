@@ -30,8 +30,9 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
+                @stack('scripts');
             </main>
-        </div>
-        @stack('scripts');
+        </div> 
+        
     </body>
 </html>

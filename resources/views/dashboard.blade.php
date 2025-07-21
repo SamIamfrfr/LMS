@@ -9,21 +9,41 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-
-                    <div>
-                        <h1>Dashboard</h1>
-                        <p>Welcome to the Learning Management System Dashboard.</p>
-                        <p>Here you can manage courses, users, and other resources.</p>
-                    </div>
-                    </div>
-                        
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="p-8 text-gray-900 dark:text-gray-100">
+                                <h1 class="text-4xl font-extrabold leading-tight tracking-tight mb-4"> Welcome! </h1>                         
+                                <p class="text-lg font-medium text-gray-700 dark:text-gray-300">Welcome to the Learning Management System Dashboard.</p>
+                                <p class="text-lg font-medium text-gray-700 dark:text-gray-300">Here you can manage courses, users, and other resources.</p>
+                            </div>    
+                        </div>
                     </div>
                 </div>
             </div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8"> <a href="{{ url('/courses') }}"
+        </div>
+    </div>
+
+    <div class="py-10">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="p-8 text-gray-900 dark:text-gray-100">
+                                <h1 class="text-4xl font-extrabold leading-tight tracking-tight mb-4"> Explore our available courses: </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    
+                
+<!--
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8"> <a href="{{ url('/courses') }}"
         class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark :hover:border-[#62605b] rounded-sm text-sm leading-normal"
         > Courses </a>
     </div>
-    
+-->
 </x-app-layout>
