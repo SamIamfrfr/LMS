@@ -30,7 +30,7 @@
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-8 text-gray-900 dark:text-gray-100">
-                                <h1 class="text-4xl font-extrabold leading-tight tracking-tight mb-4"> Explore our available courses: </h1>
+                                <h1 class="text-4xl font-extrabold leading-tight tracking-tight mb-4"> Explore our most popular courses: </h1>
                             </div>
                         </div>
                     </div>
