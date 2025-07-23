@@ -43,23 +43,23 @@
       <div class="swiper-wrapper">
         <!-- Slide 1 -->
         <div class="swiper-slide bg-gray-900 rounded-lg text-white text-center p-8">
-          <img src="/images/course1.jpg" alt="Course 1" class="mx-auto mb-4 w-full h-48 object-cover rounded">
+          <img src="/images/sec.jpg" alt="Course 1" class="mx-auto mb-4 w-full h-48 object-cover rounded">
           <h3 class="text-xl font-semibold">Cybersecurity Fundamentals</h3>
         </div>
         <!-- Slide 2 -->
         <div class="swiper-slide bg-gray-900 rounded-lg text-white text-center p-8">
-          <img src="/images/course2.jpg" alt="Course 2" class="mx-auto mb-4 w-full h-48 object-cover rounded">
+          <img src="/images/webdev.jpg" alt="Course 2" class="mx-auto mb-4 w-full h-48 object-cover rounded">
           <h3 class="text-xl font-semibold">Web Development Bootcamp</h3>
         </div>
         <!-- Slide 3 -->
         <div class="swiper-slide bg-gray-900 rounded-lg text-white text-center p-8">
-          <img src="/images/course3.jpg" alt="Course 3" class="mx-auto mb-4 w-full h-48 object-cover rounded">
+          <img src="/images/hacking.jpg" alt="Course 3" class="mx-auto mb-4 w-full h-48 object-cover rounded">
           <h3 class="text-xl font-semibold">Ethical Hacking 101</h3>
         </div>
 
         <div class="swiper-slide bg-gray-900 rounded-lg text-white text-center p-8">
-          <img src="/images/course4.jpg" alt="Course 4" class="mx-auto mb-4 w-full h-48 object-cover rounded">
-          <h3 class="text-xl font-semibold">Art 101</h3>
+          <img src="/images/crypt.png" alt="Course 4" class="mx-auto mb-4 w-full h-48 object-cover rounded">
+          <h3 class="text-xl font-semibold">Cryptography</h3>
         </div>
       </div>
 
