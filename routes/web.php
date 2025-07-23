@@ -57,11 +57,5 @@ Route::get('/users', [UserController::class, 'users'])
     
 Route::post('/courses', [CourseController::class, 'store']) -> name('courses.store');
 
-Route::get('/sync-courses', [CourseController::class, 'syncCourses'])
-    ->middleware(['auth', 'verified'])
-    ->name('courses.sync');
-
-
-
 require __DIR__.'/auth.php';
 

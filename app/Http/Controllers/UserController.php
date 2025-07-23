@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use iluminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
-use App\Providers\FirebaseService;
 
 class UserController extends Controller
 {

@@ -53,9 +53,7 @@ $(document).ready(function() {
 
 Alpine.start();
 //import './bootstrap';
-import Alpine from 'alpinejs';
-
-import $ from 'jquery'; // Import jQuery
+ // Import jQuery
 //window.jQuery = window.$ = $; // Make jQuery globally available
 
 //import DataTable from 'datatables.net-dt';
@@ -82,5 +80,3 @@ import $ from 'jquery'; // Import jQuery
     // E.g., remove $('#myLeftSearchInput').on('keyup', ...); if you added it.
 });
 */
-
-Alpine.start();
